@@ -9,4 +9,8 @@ export default class AnswerMeApiService {
   static async getQuestions(): Promise<Question[]> {
     return await this.api.get<Question[]>('questions').then(response => response.data)
   }
+
+  static async createQuestion(question: Question): Promise<Question> {
+    return await this.api.post<Question>('questions', question).then(response => response.data)
+  }
 }

@@ -23,11 +23,11 @@ export default function Home() {
       <section className="card-container">
         {questions.map(question => {
           return (
-            <Card key={question.id}>
+            <Card key={question?.id}>
               <CardContent>
                 <CardTitle>{question.question}</CardTitle>
                 <p className="answer-quantity">
-                  <img src={answerIcon} alt="answer icon" /> <span className="quantity">{question.answers.length}</span>
+                  <img src={answerIcon} alt="answer icon" /> <span className="quantity">{question.answers?.length}</span>
                 </p>
               </CardContent>
               <CardActions>
