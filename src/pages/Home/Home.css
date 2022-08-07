@@ -23,8 +23,8 @@
   align-items: baseline;
 }
 
-#home .answer-quantity img {
-  width: 1rem;
+#home .answer-quantity i {
+  font-size: 1rem;
 }
 
 #home .answer-quantity .quantity {

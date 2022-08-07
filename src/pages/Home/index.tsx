@@ -27,18 +27,18 @@ export default function Home() {
               <CardContent>
                 <CardTitle>{question.question}</CardTitle>
                 <p className="answer-quantity">
-                  <img src={answerIcon} alt="answer icon" /> <span className="quantity">{question.answers?.length}</span>
+                  <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
               </CardContent>
               <CardActions>
-                <a href="#" className="btn-flat btn-small white-text">More</a>
+                <a href="#" className="btn-flat purple lighten-1 btn-small white-text waves-effect">More</a>
               </CardActions>
             </Card>
           )
         })}
       </section>
       <button className="btn-floating purple" id="add-question-btn">
-        <img src={addIcon} alt="add icon"/>
+        <i className="material-icons">add</i>
       </button>
     </main>
   )
