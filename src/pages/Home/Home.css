@@ -1,0 +1,16 @@
+#home {
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#home #add-question-btn {
+  font-size: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
