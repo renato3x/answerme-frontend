@@ -1,19 +1,33 @@
+import { useEffect, useState } from 'react'
 import addIcon from '../../../public/assets/icons/add.svg'
 import answerIcon from '../../../public/assets/icons/answer.svg'
 import { Card, CardContent, CardTitle } from '../../components/Card'
+import Question from '../../interfaces/Question'
+import AnswerMeApiService from '../../services/AnswerMeApiService'
 import './Home.css'
 
 export default function Home() {
+  const [ questions, setQuestions ] = useState<Question[]>([])
+
+  useEffect(() => {
+    async function getQuestions() {
+      const apiQuestions = await AnswerMeApiService.getQuestions()
+      setQuestions(apiQuestions)
+    }
+
+    getQuestions()
+  }, [])
+
   return (
     <main id="home">
       <section className="card-container">
-        {new Array(5).fill('').map((_, index) => {
+        {questions.map(question => {
           return (
-            <Card key={index}>
+            <Card key={question.id}>
               <CardContent>
-                <CardTitle>Title { index + 1 }</CardTitle>
+                <CardTitle>{question.question}</CardTitle>
                 <p className="answer-quantity">
-                  <img src={answerIcon} alt="answer icon"/> <span className="quantity">5</span>
+                  <img src={answerIcon} alt="answer icon" /> <span className="quantity">{question.answers.length}</span>
                 </p>
               </CardContent>
             </Card>
