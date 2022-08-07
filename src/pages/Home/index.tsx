@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import addIcon from '../../../public/assets/icons/add.svg'
 import answerIcon from '../../../public/assets/icons/answer.svg'
-import { Card, CardContent, CardTitle } from '../../components/Card'
+import { Card, CardActions, CardContent, CardTitle } from '../../components/Card'
 import Question from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
 import './Home.css'
@@ -30,6 +30,9 @@ export default function Home() {
                   <img src={answerIcon} alt="answer icon" /> <span className="quantity">{question.answers.length}</span>
                 </p>
               </CardContent>
+              <CardActions>
+                <a href="#" className="btn-flat btn-small white-text">More</a>
+              </CardActions>
             </Card>
           )
         })}
