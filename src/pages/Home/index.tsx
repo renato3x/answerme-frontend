@@ -49,7 +49,12 @@ export default function Home() {
         <DialogContent className="add-question-dialog-content">
           <form>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label question-input">
-              <textarea className="mdl-textfield__input text-white" id="question" onFocus={handleToggleQuestionLabelClass} onBlur={handleToggleQuestionLabelClass}></textarea>
+              <textarea 
+                className="mdl-textfield__input text-white" 
+                id="question"
+                onFocus={handleToggleQuestionLabelClass}
+                onBlur={handleToggleQuestionLabelClass}
+              ></textarea>
               <label ref={setLabel} className="mdl-textfield__label question-label" htmlFor="question">Type your question here</label>
             </div>
             <button 
