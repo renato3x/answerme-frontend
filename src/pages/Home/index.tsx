@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Card, CardActions, CardContent, CardTitle } from '../../components/Card'
+import { Card, CardActions, CardContent } from '../../components/Card'
 import Question from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
 import './Home.css'
@@ -37,7 +37,7 @@ export default function Home() {
           )
         })}
       </section>
-      <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--primary" id="add-question-btn">
+      <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--accent" id="add-question-btn">
         <i className="material-icons">add</i>
       </button>
     </main>

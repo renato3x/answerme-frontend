@@ -25,7 +25,7 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(1, 100%);
-  row-gap: 1rem;
+  gap: 1rem 0;
 }
 
 #home .card-container .question-card {
@@ -58,4 +58,17 @@
 
 #home .card-container .question-card .question-card-actions .answer-quantity .quantity {
   margin-left: .3rem;
+}
+
+@media (min-width: 1024px) {
+  #home .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  #home .card-container .question-card .question-content {
+    font-size: 1rem;
+  }
 }
