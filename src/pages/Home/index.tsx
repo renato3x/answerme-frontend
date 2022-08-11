@@ -43,7 +43,7 @@ export default function Home() {
       <DialogTriggerButton
         dialogRef={dialogRef as HTMLDialogElement}
         type="open"
-        className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--accent" 
+        className="mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--accent" 
         id="add-question-btn"
       >
         <i className="material-icons">add</i>

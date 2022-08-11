@@ -7,11 +7,9 @@ interface DialogTriggerButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
 const DialogTriggerButton: FC<DialogTriggerButtonProps> = (props) => {
 
-  function loadHtmlAttributes() {
+  function loadHtmlAttributes(keysToRemove: string[]) {
     return Object.keys(props)
     .filter(key => {
-      const keysToRemove = ['dialogRef', 'type', 'className']
-
       return !keysToRemove.includes(key)
     })
     .reduce<{ [key: string]: any }>((object, key) => {
@@ -30,7 +28,7 @@ const DialogTriggerButton: FC<DialogTriggerButtonProps> = (props) => {
   }
 
   return (
-    <button {...loadHtmlAttributes()} className={`mdl-button mdl-js-button mdl-js-ripple-effect ${props.className}`} onClick={handleOpenOrCloseDialog}>
+    <button {...loadHtmlAttributes(['dialogRef', 'type'])} className={`mdl-button mdl-js-button mdl-js-ripple-effect ${props.className}`} onClick={handleOpenOrCloseDialog}>
       { props.children }
     </button>
   )
