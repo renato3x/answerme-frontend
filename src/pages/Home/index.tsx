@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Card, CardActions, CardContent } from '../../components/Card'
-import { Dialog, DialogTriggerButton } from '../../components/Dialog'
+import { Dialog, DialogActions, DialogContent, DialogTitle, DialogTriggerButton } from '../../components/Dialog'
 import Question from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
 import './Home.css'
@@ -39,7 +39,15 @@ export default function Home() {
           )
         })}
       </section>
-      <Dialog ref={setDialogRef} className="add-question-dialog"></Dialog>
+      <Dialog ref={setDialogRef} className="add-question-dialog">
+        <DialogTitle className="text-white">New Question</DialogTitle>
+        <DialogContent className="text-white">
+          <p>This is The Dialog Content</p>
+        </DialogContent>
+        <DialogActions>
+          <DialogTriggerButton type="close" dialogRef={dialogRef as HTMLDialogElement} className="mdl-button--colored mdl-button--primary">Cancelar</DialogTriggerButton>
+        </DialogActions>
+      </Dialog>
       <DialogTriggerButton
         dialogRef={dialogRef as HTMLDialogElement}
         type="open"

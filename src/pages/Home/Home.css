@@ -11,6 +11,7 @@
 
 #home .add-question-dialog {
   background: #303030;
+  width: 100%;
 }
 
 #home #add-question-btn {
