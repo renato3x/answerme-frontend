@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { SyntheticEvent, useCallback, useEffect, useState } from 'react'
 import { Card, CardActions, CardContent } from '../../components/Card'
 import { Dialog, DialogActions, DialogContent, DialogTitle, DialogTriggerButton } from '../../components/Dialog'
 import Question from '../../interfaces/Question'
@@ -10,21 +10,42 @@ export default function Home() {
   const [ dialogRef, setDialogRef ] = useState<HTMLDialogElement | null>()
   const [ label, setLabel ] = useState<HTMLLabelElement | null>()
   const [ question, setQuestion ] = useState<string>('')
+  
   const questionIsInvalid = useCallback(() => {
     return question.length === 0
   }, [question])
 
   useEffect(() => {
-    async function getQuestions() {
-      const apiQuestions = await AnswerMeApiService.getQuestions()
-      setQuestions(apiQuestions)
-    }
-
-    getQuestions()
+    loadQuestions()
   }, [])
+
+  async function loadQuestions() {
+    const apiQuestions = await AnswerMeApiService.getQuestions()
+    setQuestions(apiQuestions)  
+  }
 
   function handleToggleQuestionLabelClass() {
     label?.classList.toggle('question-label')
+  }
+
+  function handleSaveQuestion(question: string) {
+    return async function(event: SyntheticEvent) {
+      event.preventDefault()
+      event.stopPropagation()
+
+      await AnswerMeApiService.createQuestion({question})
+      .then(closeDialog)
+      .then(resetQuestionForm)
+      .then(loadQuestions)
+    }
+  }
+
+  function closeDialog() {
+    dialogRef?.close()
+  }
+
+  function resetQuestionForm() {
+    setQuestion('')
   }
 
   return (
@@ -51,7 +72,7 @@ export default function Home() {
       <Dialog ref={setDialogRef} className="add-question-dialog">
         <DialogTitle className="add-question-dialog-title text-white">New Question</DialogTitle>
         <DialogContent className="add-question-dialog-content">
-          <form action="">
+          <form action="" onSubmit={handleSaveQuestion(question)}>
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label question-input">
               <textarea 
                 className="mdl-textfield__input text-white" 
@@ -59,6 +80,7 @@ export default function Home() {
                 onFocus={handleToggleQuestionLabelClass}
                 onBlur={handleToggleQuestionLabelClass}
                 onInput={({ currentTarget }) => setQuestion(currentTarget.value)}
+                value={question}
               ></textarea>
               <label ref={setLabel} className="mdl-textfield__label question-label" htmlFor="question">Type your question here</label>
             </div>
