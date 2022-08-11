@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+#home .add-question-dialog {
+  background: #303030;
+}
+
 #home #add-question-btn {
   font-size: 0;
   display: flex;

@@ -39,7 +39,7 @@ export default function Home() {
           )
         })}
       </section>
-      <Dialog ref={setDialogRef}/>
+      <Dialog ref={setDialogRef} className="add-question-dialog"></Dialog>
       <DialogTriggerButton
         dialogRef={dialogRef as HTMLDialogElement}
         type="open"
