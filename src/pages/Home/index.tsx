@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Card, CardActions, CardContent } from '../../components/Card'
+import { Dialog, DialogTriggerButton } from '../../components/Dialog'
 import Question from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
 import './Home.css'
 
 export default function Home() {
   const [ questions, setQuestions ] = useState<Question[]>([])
+  const [ dialogRef, setDialogRef ] = useState<HTMLDialogElement | null>()
 
   useEffect(() => {
     async function getQuestions() {
@@ -37,9 +39,15 @@ export default function Home() {
           )
         })}
       </section>
-      <button className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--accent" id="add-question-btn">
+      <Dialog ref={setDialogRef}/>
+      <DialogTriggerButton
+        dialogRef={dialogRef as HTMLDialogElement}
+        type="open"
+        className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-button--accent" 
+        id="add-question-btn"
+      >
         <i className="material-icons">add</i>
-      </button>
+      </DialogTriggerButton>
     </main>
   )
 }
