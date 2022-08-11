@@ -1,8 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react';
-import DefaultProps from '../../interfaces/DefaultProps';
 import DialogTriggerButton from './DialogTriggerButton';
 
-interface DialogProps extends DefaultProps, HTMLAttributes<HTMLDialogElement> {}
+interface DialogProps extends HTMLAttributes<HTMLDialogElement> {}
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
   return (

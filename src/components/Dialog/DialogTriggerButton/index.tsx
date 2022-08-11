@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
-import DefaultProps from '../../../interfaces/DefaultProps';
 
-interface DialogTriggerButtonProps extends DefaultProps, HTMLAttributes<HTMLButtonElement> {
+interface DialogTriggerButtonProps extends HTMLAttributes<HTMLButtonElement> {
   dialogRef: HTMLDialogElement,
   type: 'open' | 'close'
 }
