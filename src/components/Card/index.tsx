@@ -7,7 +7,7 @@ import './Card.css'
 
 const Card: React.FC<DefaultProps> = ({ children }) => {
   return (
-    <div className="card purple lighten-1">
+    <div className="card mdl-card mdl-shadow--2dp">
       {children}
     </div>
   )

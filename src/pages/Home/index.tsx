@@ -10,7 +10,6 @@ export default function Home() {
   useEffect(() => {
     async function getQuestions() {
       const apiQuestions = await AnswerMeApiService.getQuestions()
-      apiQuestions.length = 5
       setQuestions(apiQuestions)
     }
 
@@ -24,13 +23,13 @@ export default function Home() {
           return (
             <Card key={question?.id}>
               <CardContent>
-                <CardTitle>{question.question}</CardTitle>
+                {question.question}
               </CardContent>
               <CardActions className="question-card-actions">
                 <p className="answer-quantity">
                   <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
-                <a href="#" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">More</a>
+                <a href="#" className="mdl-button mdl-js-button mdl-js-ripple-effect">More</a>
               </CardActions>
             </Card>
           )

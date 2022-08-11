@@ -4,7 +4,7 @@ import './CardContent.css'
 
 const CardContent: React.FC<DefaultProps> = ({ children }) => {
   return (
-    <div className="card-content">
+    <div className="mdl-card__supporting-text">
       {children}
     </div>
   )

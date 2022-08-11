@@ -6,7 +6,7 @@ interface CardActionsProps extends DefaultProps, HTMLAttributes<HTMLDivElement> 
 
 const CardActions: React.FC<CardActionsProps> = (props) => {
   return (
-    <div className="card-action" {...props}>
+    <div className="mdl-card__actions" {...props}>
       {props.children}
     </div>
   )
