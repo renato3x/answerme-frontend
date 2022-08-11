@@ -83,8 +83,12 @@
 }
 
 @media (min-width: 1024px) {
+  #home .add-question-dialog .add-question-dialog-content form .question-input .question-label {
+    font-size: .9rem;
+  }
+
   #home .add-question-dialog {
-    width: 80%;
+    width: 60%;
   }
 
   #home .card-container {
@@ -98,6 +102,10 @@
 }
 
 @media (min-width: 1440px) {
+  #home .add-question-dialog {
+    width: 40%;
+  }
+
   #home .card-container .question-card .question-content {
     font-size: 1rem;
   }
