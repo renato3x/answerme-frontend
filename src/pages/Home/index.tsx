@@ -61,9 +61,12 @@ export default function Home() {
                 </p>
               </CardContent>
               <CardActions className="question-card-actions">
-                <p className="answer-quantity">
+                <p className="answer-quantity" id={`answer-quantity-${question.id}`}>
                   <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
+                <div className="mdl-tooltip mdl-tooltip--left" data-mdl-for={`answer-quantity-${question.id}`}>
+                  {question.answers?.length === 1 ? '1 answer' : `${question.answers?.length} answers`}
+                </div>
                 <Link to={`/question/${question?.id}`} className="mdl-button mdl-js-button mdl-js-ripple-effect text-white">More</Link>
               </CardActions>
             </Card>
