@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Card, CardActions, CardContent } from '../../components/Card'
 import { Dialog, DialogActions, DialogContent, DialogTitle, DialogTriggerButton } from '../../components/Dialog'
 import Question from '../../interfaces/Question'
@@ -9,6 +9,10 @@ export default function Home() {
   const [ questions, setQuestions ] = useState<Question[]>([])
   const [ dialogRef, setDialogRef ] = useState<HTMLDialogElement | null>()
   const [ label, setLabel ] = useState<HTMLLabelElement | null>()
+  const [ question, setQuestion ] = useState<string>('')
+  const questionIsInvalid = useCallback(() => {
+    return question.length === 0
+  }, [question])
 
   useEffect(() => {
     async function getQuestions() {
@@ -47,19 +51,21 @@ export default function Home() {
       <Dialog ref={setDialogRef} className="add-question-dialog">
         <DialogTitle className="add-question-dialog-title text-white">New Question</DialogTitle>
         <DialogContent className="add-question-dialog-content">
-          <form>
+          <form action="">
             <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label question-input">
               <textarea 
                 className="mdl-textfield__input text-white" 
                 id="question"
                 onFocus={handleToggleQuestionLabelClass}
                 onBlur={handleToggleQuestionLabelClass}
+                onInput={({ currentTarget }) => setQuestion(currentTarget.value)}
               ></textarea>
               <label ref={setLabel} className="mdl-textfield__label question-label" htmlFor="question">Type your question here</label>
             </div>
             <button 
-              type="button" 
+              type="submit" 
               className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--primary"
+              disabled={questionIsInvalid()}
             >Post</button>
           </form>
         </DialogContent>
