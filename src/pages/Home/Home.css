@@ -65,6 +65,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
+
+  #home {
+    padding: 1rem 10rem;
+  }
 }
 
 @media (min-width: 1440px) {
