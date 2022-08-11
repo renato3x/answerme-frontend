@@ -1,8 +1,6 @@
-import React from 'react'
-import DefaultProps from '../../../interfaces/DefaultProps'
-import './CardContent.css'
+import React, { HTMLAttributes } from 'react'
 
-const CardContent: React.FC<DefaultProps> = ({ children }) => {
+const CardContent: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children }) => {
   return (
     <div className="mdl-card__supporting-text">
       {children}

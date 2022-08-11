@@ -1,18 +1,13 @@
-import React from 'react'
-import DefaultProps from '../../interfaces/DefaultProps'
+import React, { HTMLAttributes } from 'react'
 import CardTitle from './CardTitle'
 import CardContent from './CardContent'
 import CardActions from './CardActions'
 import './Card.css'
 
-interface CardProps extends DefaultProps {
-  className: string
-}
-
-const Card: React.FC<CardProps> = ({ children, className }) => {
+const Card: React.FC<HTMLAttributes<HTMLDivElement>> = (props) => {
   return (
-    <div className={`card mdl-card mdl-shadow--2dp ${className}`}>
-      {children}
+    <div {...props} className={`card mdl-card mdl-shadow--2dp ${props.className}`}>
+      {props.children}
     </div>
   )
 }
