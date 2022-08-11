@@ -1,4 +1,5 @@
 import { SyntheticEvent, useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardActions, CardContent } from '../../components/Card'
 import { Dialog, DialogActions, DialogContent, DialogTitle, DialogTriggerButton } from '../../components/Dialog'
 import Question from '../../interfaces/Question'
@@ -63,7 +64,7 @@ export default function Home() {
                 <p className="answer-quantity">
                   <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
-                <a href="#" className="mdl-button mdl-js-button mdl-js-ripple-effect text-white">More</a>
+                <Link to={`/question/${question?.id}`} className="mdl-button mdl-js-button mdl-js-ripple-effect text-white">More</Link>
               </CardActions>
             </Card>
           )
