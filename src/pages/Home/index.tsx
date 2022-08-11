@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import addIcon from '../../../public/assets/icons/add.svg'
-import answerIcon from '../../../public/assets/icons/answer.svg'
 import { Card, CardActions, CardContent, CardTitle } from '../../components/Card'
 import Question from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
@@ -26,11 +24,11 @@ export default function Home() {
             <Card key={question?.id}>
               <CardContent>
                 <CardTitle>{question.question}</CardTitle>
+              </CardContent>
+              <CardActions className="question-card-actions">
                 <p className="answer-quantity">
                   <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
-              </CardContent>
-              <CardActions>
                 <a href="#" className="btn-flat purple lighten-1 btn-small white-text waves-effect">More</a>
               </CardActions>
             </Card>

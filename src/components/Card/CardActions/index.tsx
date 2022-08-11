@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import DefaultProps from '../../../interfaces/DefaultProps'
 import './CardActions.css'
 
-const CardActions: React.FC<DefaultProps> = ({ children }) => {
+interface CardActionsProps extends DefaultProps, HTMLAttributes<HTMLDivElement> {}
+
+const CardActions: React.FC<CardActionsProps> = (props) => {
   return (
-    <div className="card-action">
-      {children}
+    <div className="card-action" {...props}>
+      {props.children}
     </div>
   )
 }

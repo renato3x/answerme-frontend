@@ -16,11 +16,14 @@
 #home .card-container {
   padding: .5rem 1rem;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 100%;
 }
 
 #home .answer-quantity {
   display: flex;
   align-items: baseline;
+  margin-left: 1rem;
 }
 
 #home .answer-quantity i {
@@ -30,4 +33,10 @@
 #home .answer-quantity .quantity {
   margin-left: .3rem;
   font-size: .8rem;
+}
+
+.question-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
