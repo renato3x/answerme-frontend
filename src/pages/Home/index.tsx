@@ -8,6 +8,7 @@ import './Home.css'
 export default function Home() {
   const [ questions, setQuestions ] = useState<Question[]>([])
   const [ dialogRef, setDialogRef ] = useState<HTMLDialogElement | null>()
+  const [ label, setLabel ] = useState<HTMLLabelElement | null>()
 
   useEffect(() => {
     async function getQuestions() {
@@ -17,6 +18,10 @@ export default function Home() {
 
     getQuestions()
   }, [])
+
+  function handleToggleQuestionLabelClass() {
+    label?.classList.toggle('question-label')
+  }
 
   return (
     <main id="home">
@@ -40,9 +45,18 @@ export default function Home() {
         })}
       </section>
       <Dialog ref={setDialogRef} className="add-question-dialog">
-        <DialogTitle className="text-white">New Question</DialogTitle>
-        <DialogContent className="text-white">
-          <p>This is The Dialog Content</p>
+        <DialogTitle className="add-question-dialog-title text-white">New Question</DialogTitle>
+        <DialogContent className="add-question-dialog-content">
+          <form>
+            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label question-input">
+              <textarea className="mdl-textfield__input text-white" id="question" onFocus={handleToggleQuestionLabelClass} onBlur={handleToggleQuestionLabelClass}></textarea>
+              <label ref={setLabel} className="mdl-textfield__label question-label" htmlFor="question">Type your question here</label>
+            </div>
+            <button 
+              type="button" 
+              className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--primary"
+            >Post</button>
+          </form>
         </DialogContent>
         <DialogActions>
           <DialogTriggerButton type="close" dialogRef={dialogRef as HTMLDialogElement} className="mdl-button--colored mdl-button--primary">Cancelar</DialogTriggerButton>

@@ -14,6 +14,23 @@
   width: 100%;
 }
 
+#home .add-question-dialog .add-question-dialog-title {
+  font-size: 1.5rem
+}
+
+#home .add-question-dialog .add-question-dialog-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+#home .add-question-dialog .add-question-dialog-content form .question-input {
+  width: 100%;
+}
+
+#home .add-question-dialog .add-question-dialog-content form .question-input .question-label {
+  color: #ffffff9a;
+}
+
 #home #add-question-btn {
   font-size: 0;
   display: flex;
