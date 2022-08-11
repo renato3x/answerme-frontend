@@ -21,15 +21,17 @@ export default function Home() {
       <section className="card-container">
         {questions.map(question => {
           return (
-            <Card key={question?.id}>
+            <Card key={question?.id} className="question-card">
               <CardContent>
-                {question.question}
+                <p className="text-white question-content">
+                  {question.question}
+                </p>
               </CardContent>
               <CardActions className="question-card-actions">
                 <p className="answer-quantity">
                   <i className="material-icons">question_answer</i> <span className="quantity">{question.answers?.length}</span>
                 </p>
-                <a href="#" className="mdl-button mdl-js-button mdl-js-ripple-effect">More</a>
+                <a href="#" className="mdl-button mdl-js-button mdl-js-ripple-effect text-white">More</a>
               </CardActions>
             </Card>
           )

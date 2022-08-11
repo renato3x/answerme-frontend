@@ -5,9 +5,13 @@ import CardContent from './CardContent'
 import CardActions from './CardActions'
 import './Card.css'
 
-const Card: React.FC<DefaultProps> = ({ children }) => {
+interface CardProps extends DefaultProps {
+  className: string
+}
+
+const Card: React.FC<CardProps> = ({ children, className }) => {
   return (
-    <div className="card mdl-card mdl-shadow--2dp">
+    <div className={`card mdl-card mdl-shadow--2dp ${className}`}>
       {children}
     </div>
   )
