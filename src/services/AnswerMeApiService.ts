@@ -13,4 +13,8 @@ export default class AnswerMeApiService {
   static async createQuestion(question: Question): Promise<Question> {
     return await this.api.post<Question>('questions', question).then(response => response.data)
   }
+
+  static async getQuestionById(id: number): Promise<Question> {
+    return await this.api.get<Question>(`questions/${id}`).then(response => response.data)
+  }
 }
