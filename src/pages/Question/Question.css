@@ -1,5 +1,13 @@
+.text-white * {
+  color: #ffffff !important;
+}
+
 #question {
   min-height: 100vh;
   padding: 1.5rem 1rem;
   box-sizing: border-box;
+}
+
+#question .question-card {
+  background: #9c27b0;
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, CardTitle, CardContent, CardActions } from '../../components/Card'
+import { Card, CardTitle, CardContent } from '../../components/Card'
 import QuestionInterface from '../../interfaces/Question'
 import AnswerMeApiService from '../../services/AnswerMeApiService'
 import moment from 'moment'
@@ -21,10 +21,10 @@ export default function Question() {
 
   return (
     <main id="question">
-      <Card>
+      <Card className="question-card text-white">
         <CardTitle>{question?.question}</CardTitle>
-        <CardContent>
-          <p>Sent at {moment(question?.createdAt).fromNow()}</p>
+        <CardContent className="question-card-content">
+          <p style={{ margin: '0' }}>Sent at {moment(question?.createdAt).fromNow()}</p>
         </CardContent>
       </Card>
     </main>
